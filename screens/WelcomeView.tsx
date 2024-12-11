@@ -6,34 +6,22 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
-import { AppImages } from '../src/assets';  
+import { AppImages } from '../src/assets';
 
-const WelcomeView = () => {
+const WelcomeView = ({ navigation }: { navigation: any }) => {
   return (
     <View style={styles.container}>
-      {/* */}
-      <Image
-        source={AppImages.welcome} 
-        style={styles.image}
-        resizeMode="contain"
-      />
-
-      {/* */}
+      <Image source={AppImages.welcome} style={styles.image} resizeMode="contain" />
       <Text style={styles.title}>سلامت زنان</Text>
       <Text style={styles.subtitle}>
-      اپلیکیشن ردیابی و پیش‌بینی پریود به شما این امکان را می‌دهد که سیکل پریود خود را وارد کنید، به کمک تقویم پریود، دوره پریود‌ و تخمک گذاری بعدی‌تان را محاسبه کنید.
+        اپلیکیشن ردیابی و پیش‌بینی پریود به شما این امکان را می‌دهد که سیکل پریود خود را وارد کنید، به کمک تقویم پریود، دوره پریود‌ و تخمک گذاری بعدی‌تان را محاسبه کنید.
       </Text>
-
-      {/* */}
-      <TouchableOpacity style={styles.signUpButton}>
-        <Text style={styles.signUpText}>ثبت نام کنید</Text>
+      <TouchableOpacity
+        style={styles.signUpButton}
+        onPress={() => navigation.navigate('SignUp')} 
+      >
+        <Text style={styles.signUpText}>شروع کنید</Text>
       </TouchableOpacity>
-
-      {/* */}
-      <Text style={styles.loginText}>
-      از قبل حساب کاربری دارید؟{' '}
-        <Text style={styles.loginLink}>وارد شوید</Text>
-      </Text>
     </View>
   );
 };
@@ -67,8 +55,8 @@ const styles = StyleSheet.create({
   },
   signUpButton: {
     backgroundColor: '#436ff2',
-    paddingVertical: 15,
-    paddingHorizontal: 40,
+    paddingVertical: 10,
+    paddingHorizontal: 120,
     borderRadius: 25,
     marginBottom: 20,
     flexDirection: 'row',
@@ -79,17 +67,7 @@ const styles = StyleSheet.create({
     color: '#FFF',
     fontSize: 16,
     fontWeight: '600',
-  },
-  loginText: {
-    fontSize: 14,
-    color: '#999',
-    textAlign: 'center',
-  },
-  loginLink: {
-    fontSize: 14,
-    color: '#1E223F',
-    fontWeight: '700',
-  },
+  }
 });
 
 export default WelcomeView;
