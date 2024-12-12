@@ -7,34 +7,47 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-const VerificationCode = ({navigation}: {navigation: any}) => {
-  const [isFocused, setIsFocused] = useState(false);
+const ReferralCodeInput = ({navigation}: {navigation: any}) => {
+  const [isNameFocused, setIsNameFocused] = useState(false);
+  const [isCodeFocused, setIsCodeFocused] = useState(false);
 
   return (
     <View style={styles.container}>
       <View style={styles.contentContainer}>
         <Text style={styles.title}>
-          شماره تلفن خود را برای دریافت کد تأیید وارد کنید.
+          نام خودت رو این قسمت وارد کن، در صورت معرف کد معرف رو وارد کن.
         </Text>
 
         <View
           style={[
             styles.inputContainer,
-            isFocused && {borderColor: '#436FF2', borderWidth: 1.5},
+            isNameFocused && {borderColor: '#436FF2', borderWidth: 1.5},
           ]}>
           <TextInput
             style={styles.input}
-            placeholder="شماره تلفن"
-            keyboardType="phone-pad"
-            onFocus={() => setIsFocused(true)}
-            onBlur={() => setIsFocused(false)}
+            placeholder="نام"
+            onFocus={() => setIsNameFocused(true)}
+            onBlur={() => setIsNameFocused(false)}
+          />
+        </View>
+
+        <View
+          style={[
+            styles.inputContainer,
+            isCodeFocused && {borderColor: '#436FF2', borderWidth: 1.5},
+          ]}>
+          <TextInput
+            style={styles.input}
+            placeholder="کد معرف (اختیاری)"
+            onFocus={() => setIsCodeFocused(true)}
+            onBlur={() => setIsCodeFocused(false)}
           />
         </View>
       </View>
 
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('Verification')}>
+        onPress={() => navigation.navigate('NextScreen')}>
         <Text style={styles.buttonText}>ادامه</Text>
       </TouchableOpacity>
     </View>
@@ -68,7 +81,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F9F9F9',
     borderRadius: 10,
     paddingHorizontal: 12,
-    marginBottom: 30,
+    marginBottom: 20,
     height: 48,
   },
   input: {
@@ -94,4 +107,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default VerificationCode;
+export default ReferralCodeInput;

@@ -1,25 +1,24 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TouchableOpacity,
-} from 'react-native';
-import { AppImages } from '../src/assets';
+import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
+import {AppImages} from '../src/assets';
 
-const WelcomeView = ({ navigation }: { navigation: any }) => {
+const WelcomeView = ({navigation}: {navigation: any}) => {
   return (
     <View style={styles.container}>
-      <Image source={AppImages.welcome} style={styles.image} resizeMode="contain" />
+      <Image
+        source={AppImages.welcome}
+        style={styles.image}
+        resizeMode="contain"
+      />
       <Text style={styles.title}>سلامت زنان</Text>
       <Text style={styles.subtitle}>
-        اپلیکیشن ردیابی و پیش‌بینی پریود به شما این امکان را می‌دهد که سیکل پریود خود را وارد کنید، به کمک تقویم پریود، دوره پریود‌ و تخمک گذاری بعدی‌تان را محاسبه کنید.
+        اپلیکیشن ردیابی و پیش‌بینی پریود به شما این امکان را می‌دهد که سیکل
+        پریود خود را وارد کنید، به کمک تقویم پریود، دوره پریود‌ و تخمک گذاری
+        بعدی‌تان را محاسبه کنید.
       </Text>
       <TouchableOpacity
         style={styles.signUpButton}
-        onPress={() => navigation.navigate('SignUp')} 
-      >
+        onPress={() => navigation.navigate('SignUp')}>
         <Text style={styles.signUpText}>شروع کنید</Text>
       </TouchableOpacity>
     </View>
@@ -54,20 +53,20 @@ const styles = StyleSheet.create({
     lineHeight: 22,
   },
   signUpButton: {
-    backgroundColor: '#436ff2',
-    paddingVertical: 10,
-    paddingHorizontal: 120,
-    borderRadius: 25,
-    marginBottom: 20,
-    flexDirection: 'row',
+    width: '90%',
+    backgroundColor: '#436FF2',
+    borderRadius: 10,
+    height: 48,
     alignItems: 'center',
     justifyContent: 'center',
+    flexDirection: 'row',
+    marginBottom: 20,
   },
   signUpText: {
-    color: '#FFF',
+    color: '#FFFFFF',
     fontSize: 16,
-    fontWeight: '600',
-  }
+    fontWeight: '500',
+  },
 });
 
 export default WelcomeView;
